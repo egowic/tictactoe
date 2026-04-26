@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
 
-        <div class="info">
-            <div id="status">X oyuncusu başla</div>
+        <div class="scoreboard">
+            <div class="score-item score-x">
+                <span class="score-symbol">X</span>
+                <span class="score-value" id="scoreX">0</span>
+                <span class="score-label">Kazandı</span>
+            </div>
+            <div class="score-item score-draw">
+                <span class="score-symbol">—</span>
+                <span class="score-value" id="scoreDraw">0</span>
+                <span class="score-label">Berabere</span>
+            </div>
+            <div class="score-item score-o">
+                <span class="score-symbol">O</span>
+                <span class="score-value" id="scoreO">0</span>
+                <span class="score-label">Kazandı</span>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div id="status" class="status-text">
+                <span class="turn-dot" id="turnDot"></span>
+                <span id="statusText">X'in sırası</span>
+            </div>
         </div>
 
         <div class="board" id="board">

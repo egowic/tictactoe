@@ -28,21 +28,22 @@ class GameLogic:
         for condition in win_conditions:
             if (self.board[condition[0]] == self.board[condition[1]] ==
                 self.board[condition[2]] != 0):
-                return self.board[condition[0]]
+                return self.board[condition[0]], condition
 
-        return 0
+        return 0, []
 
     def is_board_full(self):
         return all(cell != 0 for cell in self.board)
 
     def get_state(self):
-        winner = self.check_winner()
+        winner, winning_cells = self.check_winner()
         game_over = winner != 0 or self.is_board_full()
 
         return {
             'board': self.board,
             'current_player': self.current_player,
             'winner': winner,
+            'winning_cells': winning_cells,
             'game_over': game_over,
             'is_full': self.is_board_full()
         }
